@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frontend Mentor Projects</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+
+      body {
+        font-family: Inter, system-ui, sans-serif;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: 24px 16px;
+        background: #09090b;
+        color: #f4f4f5;
+      }
+
+      /* ── entry animation ── */
+      @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+
+      .cell {
+        opacity: 0;
+        animation: fadeUp 0.5s ease forwards;
+      }
+
+      .cell:nth-child(1) { animation-delay: 0.05s; }
+      .cell:nth-child(2) { animation-delay: 0.15s; }
+      .cell:nth-child(3) { animation-delay: 0.25s; }
+      .cell:nth-child(4) { animation-delay: 0.32s; }
+      .cell:nth-child(5) { animation-delay: 0.39s; }
+      .cell:nth-child(6) { animation-delay: 0.46s; }
+
+      /* ── grid ── */
+      .bento {
+        display: grid;
+        width: min(780px, 100%);
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+
+      .cell {
+        background: #18181b;
+        border: 1px solid #27272a;
+        border-radius: 18px;
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      /* hero */
+      .cell-hero {
+        grid-column: 1 / -1;
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+        padding: 28px 32px;
+        background: #111113;
+        border-color: #3f3f46;
+      }
+
+      .hero-icon {
+        width: 52px;
+        height: 52px;
+        background: #27272a;
+        border-radius: 14px;
+        display: grid;
+        place-items: center;
+        flex-shrink: 0;
+        color: #818cf8;
+      }
+
+      .hero-text h1 {
+        font-size: clamp(1.2rem, 3.5vw, 1.6rem);
+        font-weight: 700;
+        color: #f4f4f5;
+      }
+
+      .hero-text p {
+        font-size: 0.9rem;
+        color: #71717a;
+        margin-top: 4px;
+        line-height: 1.5;
+      }
+
+      /* project cards */
+      .cell-project {
+        text-decoration: none;
+        color: inherit;
+        transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
+      }
+
+      .cell-project:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 28px rgba(99, 102, 241, 0.15);
+        border-color: #6366f1;
+        outline: none;
+      }
+
+      .project-icon {
+        width: 44px;
+        height: 44px;
+        background: #27272a;
+        border-radius: 12px;
+        display: grid;
+        place-items: center;
+        color: #818cf8;
+      }
+
+      .cell-project h2 {
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: #f4f4f5;
+      }
+
+      .cell-project p {
+        font-size: 0.88rem;
+        color: #71717a;
+        line-height: 1.5;
+        flex: 1;
+      }
+
+      .project-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: auto;
+        padding-top: 12px;
+        border-top: 1px solid #27272a;
+      }
+
+      .badge {
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: #818cf8;
+        background: #1e1b4b;
+        border-radius: 999px;
+        padding: 3px 10px;
+      }
+
+      .arrow-icon { color: #52525b; }
+      .cell-project:hover .arrow-icon { color: #818cf8; }
+
+      /* stat cells */
+      .cell-stat {
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background: #111113;
+      }
+
+      .stat-number {
+        font-size: 2.4rem;
+        font-weight: 700;
+        color: #818cf8;
+        line-height: 1;
+      }
+
+      .stat-label {
+        font-size: 0.82rem;
+        color: #52525b;
+        font-weight: 500;
+        margin-top: 4px;
+      }
+
+      /* tip */
+      .cell-tip {
+        grid-column: 1 / -1;
+        flex-direction: row;
+        align-items: center;
+        gap: 12px;
+        padding: 16px 20px;
+        background: #111113;
+        border-color: #27272a;
+      }
+
+      .tip-icon { color: #f59e0b; flex-shrink: 0; }
+
+      .cell-tip p {
+        font-size: 0.88rem;
+        color: #71717a;
+        line-height: 1.5;
+      }
+
+      @media (max-width: 480px) {
+        .bento { grid-template-columns: 1fr; }
+        .cell-hero, .cell-tip { grid-column: 1; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bento">
+
+      <div class="cell cell-hero">
+        <div class="hero-icon">
+          <i data-lucide="layout-dashboard" width="26" height="26"></i>
+        </div>
+        <div class="hero-text">
+          <h1>Frontend Mentor Practice Hub</h1>
+          <p>Fast access to your current challenge previews. Click any card to open the project.</p>
+        </div>
+      </div>
+
+      <a class="cell cell-project" href="blog-preview-card-main/index.html" target="_blank">
+        <div class="project-icon">
+          <i data-lucide="newspaper" width="22" height="22"></i>
+        </div>
+        <h2>Blog Preview Card</h2>
+        <p>A card component featuring a blog post preview with image, tag, date, and author info.</p>
+        <div class="project-footer">
+          <span class="badge">HTML / CSS</span>
+          <i data-lucide="arrow-up-right" class="arrow-icon" width="18" height="18"></i>
+        </div>
+      </a>
+
+      <a class="cell cell-project" href="qr-code-component-main/index.html" target="_blank">
+        <div class="project-icon">
+          <i data-lucide="qr-code" width="22" height="22"></i>
+        </div>
+        <h2>QR Code Card</h2>
+        <p>A centered card displaying a QR code with a short call-to-action message below it.</p>
+        <div class="project-footer">
+          <span class="badge">HTML / CSS</span>
+          <i data-lucide="arrow-up-right" class="arrow-icon" width="18" height="18"></i>
+        </div>
+      </a>
+
+      <div class="cell cell-stat">
+        <div class="stat-number">2</div>
+        <div class="stat-label">Projects</div>
+      </div>
+
+      <div class="cell cell-stat">
+        <div class="stat-number">0</div>
+        <div class="stat-label">Build tools</div>
+      </div>
+
+      <div class="cell cell-tip">
+        <i data-lucide="zap" class="tip-icon" width="18" height="18"></i>
+        <p>Tip: Use VS Code Live Server for instant reload while editing your HTML &amp; CSS files.</p>
+      </div>
+
+    </div>
+    <script>lucide.createIcons();</script>
+  </body>
+</html>
