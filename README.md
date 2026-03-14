@@ -1,33 +1,44 @@
 # Frontend Mentor Practice Projects
 
-This repository contains solutions to Frontend Mentor HTML/CSS challenge projects.
+A small portfolio repository for Frontend Mentor HTML/CSS challenge solutions.
 
-## Projects
+## 🚀 Quick Start
 
-1. **Blog preview card** (`blog-preview-card-main`)
-   - Challenge: Blog preview card component
-   - Files: `index.html`, `style.css`, `assets/`, `design/`
-   - Start: Open `blog-preview-card-main/index.html` in your browser
+Open the root `index.html` page (project launcher) to jump to each challenge:
 
-2. **QR code component** (`qr-code-component-main`)
-   - Challenge: QR code card component
-   - Files: `index.html`, `style.css`, `images/`, `design/`
-   - Start: Open `qr-code-component-main/index.html` in your browser
+- `blog-preview-card-main/index.html`
+- `qr-code-component-main/index.html`
 
-## How to use
+## 📁 Projects
 
-For each project:
+### 1) Blog preview card
 
-1. Open the project folder.
-2. Read the challenge instructions in `README.md` and `README-template.md`.
-3. Open `index.html` in your browser (or use Live Server in VS Code).
-4. Edit HTML/CSS files and refresh to view updates.
+- Folder: `blog-preview-card-main`
+- Files: `index.html`, `style.css`, `assets/`, `design/`
+- Goal: Recreate the card layout with responsive spacing and hover states.
 
-## Tools
+### 2) QR code component
 
-- Built with plain HTML and CSS (no build tools required).
-- Optional: use VS Code Live Server extension for fast preview.
+- Folder: `qr-code-component-main`
+- Files: `index.html`, `style.css`, `images/`, `design/`
+- Goal: Build a centered card with a QR image and text styling.
 
-## License
+## 🧭 How to run
 
-This repo is for learning and practice. Feel free to fork and adapt.
+1. Open this repository in VS Code.
+2. Open `index.html` in the workspace root.
+3. Use Live Server for instant preview and refresh while editing.
+
+## ✨ Improvements added
+
+- Added a polished root navigation page at `index.html` with gradient background.
+- Added hover animations and visual card styling for easier navigation.
+
+## 📌 Notes
+
+- This repo is for learning and portfolio practice.
+- Feel free to modify HTML/CSS and add more challenge solutions.
+
+## 💡 Optional next step
+
+- Add a new challenge folder and link it from the root `index.html` and this README.
