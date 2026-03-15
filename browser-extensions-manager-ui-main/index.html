@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <title>Frontend Mentor | Browser extensions manager UI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page">
+    <header>
+      <img src="./assets/images/logo.svg" alt="Logo" class="logo">
+      <button class="theme-toggle" aria-label="Toggle theme">
+        <img src="./assets/images/icon-moon.svg" alt="" class="icon-moon">
+        <img src="./assets/images/icon-sun.svg" alt="" class="icon-sun">
+      </button>
+    </header>
+
+    <main>
+      <div class="top-bar">
+        <h1>Extensions List</h1>
+        <div class="filters">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="active">Active</button>
+          <button class="filter-btn" data-filter="inactive">Inactive</button>
+        </div>
+      </div>
+
+      <div class="extensions-grid" id="extensions-grid"></div>
+    </main>
+
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+      Coded by <a href="#">Your Name Here</a>.
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
