@@ -5,261 +5,432 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Frontend Mentor Projects</title>
     <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-
       * { box-sizing: border-box; margin: 0; padding: 0; }
 
       body {
-        font-family: Inter, system-ui, sans-serif;
+        font-family: 'Inter', system-ui, sans-serif;
+        background: #EDE8DF;
+        color: #1A1A1A;
         min-height: 100vh;
         display: grid;
         place-items: center;
-        padding: 24px 16px;
-        background: #09090b;
-        color: #f4f4f5;
+        padding: 32px 16px;
       }
 
-      /* ── entry animation ── */
       @keyframes fadeUp {
-        from { opacity: 0; transform: translateY(20px); }
+        from { opacity: 0; transform: translateY(18px); }
         to   { opacity: 1; transform: translateY(0); }
       }
 
-      .cell {
-        opacity: 0;
-        animation: fadeUp 0.5s ease forwards;
-      }
-
-      .cell:nth-child(1) { animation-delay: 0.05s; }
-      .cell:nth-child(2) { animation-delay: 0.15s; }
-      .cell:nth-child(3) { animation-delay: 0.25s; }
-      .cell:nth-child(4) { animation-delay: 0.32s; }
-      .cell:nth-child(5) { animation-delay: 0.39s; }
-      .cell:nth-child(6) { animation-delay: 0.46s; }
-      .cell:nth-child(7) { animation-delay: 0.53s; }
-      .cell:nth-child(8) { animation-delay: 0.60s; }
-      .cell:nth-child(9) { animation-delay: 0.67s; }
-
-      /* ── grid ── */
+      /* ── bento grid ── */
       .bento {
         display: grid;
-        width: min(780px, 100%);
+        width: min(860px, 100%);
         grid-template-columns: 1fr 1fr;
         gap: 12px;
       }
 
       .cell {
-        background: #18181b;
-        border: 1px solid #27272a;
-        border-radius: 18px;
+        background: #F5F1EA;
+        border: 1px solid #D6CEBC;
+        border-radius: 16px;
         padding: 24px;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
+        opacity: 0;
       }
 
-      /* hero */
+      .cell:nth-child(1) { animation: fadeUp 0.45s ease 0.05s forwards; }
+      .cell:nth-child(2) { animation: fadeUp 0.45s ease 0.12s forwards; }
+      .cell:nth-child(3) { animation: fadeUp 0.45s ease 0.19s forwards; }
+      .cell:nth-child(4) { animation: fadeUp 0.45s ease 0.26s forwards; }
+      .cell:nth-child(5) { animation: fadeUp 0.45s ease 0.33s forwards; }
+      .cell:nth-child(6) { animation: fadeUp 0.45s ease 0.40s forwards; }
+      .cell:nth-child(7) { animation: fadeUp 0.45s ease 0.47s forwards; }
+
+      /* hero — full width */
       .cell-hero {
         grid-column: 1 / -1;
-        flex-direction: row;
+        text-align: center;
+        padding: 40px 32px;
+        background: #F5F1EA;
+      }
+
+      .cell-hero h1 {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: clamp(1.8rem, 4vw, 2.6rem);
+        color: #1A1A1A;
+        line-height: 1.2;
+      }
+
+      .cell-hero p {
+        margin-top: 10px;
+        color: #6B6560;
+        font-size: 0.92rem;
+        line-height: 1.6;
+      }
+
+      .hero-meta {
+        display: inline-flex;
         align-items: center;
-        gap: 20px;
-        padding: 28px 32px;
-        background: #111113;
-        border-color: #3f3f46;
-      }
-
-      .hero-icon {
-        width: 52px;
-        height: 52px;
-        background: #27272a;
-        border-radius: 14px;
-        display: grid;
-        place-items: center;
-        flex-shrink: 0;
-        color: #818cf8;
-      }
-
-      .hero-text h1 {
-        font-size: clamp(1.2rem, 3.5vw, 1.6rem);
-        font-weight: 700;
-        color: #f4f4f5;
-      }
-
-      .hero-text p {
-        font-size: 0.9rem;
-        color: #71717a;
-        margin-top: 4px;
-        line-height: 1.5;
+        gap: 8px;
+        margin-top: 18px;
+        background: #EDE8DF;
+        border: 1px solid #D6CEBC;
+        border-radius: 8px;
+        padding: 6px 16px;
+        font-size: 0.82rem;
+        color: #6B6560;
+        font-weight: 600;
       }
 
       /* project cards */
       .cell-project {
         text-decoration: none;
         color: inherit;
-        transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+        cursor: pointer;
       }
 
       .cell-project:hover {
+        border-color: #E8453C;
+        box-shadow: 0 6px 24px rgba(232, 69, 60, 0.1);
         transform: translateY(-3px);
-        box-shadow: 0 8px 28px rgba(99, 102, 241, 0.15);
-        border-color: #6366f1;
         outline: none;
       }
 
-      .project-icon {
-        width: 44px;
-        height: 44px;
-        background: #27272a;
+      .card-top {
+        display: flex;
+        align-items: flex-start;
+        gap: 14px;
+      }
+
+      .card-icon {
+        width: 46px;
+        height: 46px;
         border-radius: 12px;
+        background: #EDE8DF;
+        border: 1px solid #D6CEBC;
         display: grid;
         place-items: center;
-        color: #818cf8;
+        flex-shrink: 0;
+        color: #3C7BE8;
       }
 
-      .cell-project h2 {
-        font-size: 1.05rem;
+      .card-info { flex: 1; }
+
+      .card-title-row {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-bottom: 3px;
+      }
+
+      .card-info h3 {
+        font-size: 0.98rem;
         font-weight: 700;
-        color: #f4f4f5;
+        color: #1A1A1A;
       }
 
-      .cell-project p {
-        font-size: 0.88rem;
-        color: #71717a;
-        line-height: 1.5;
-        flex: 1;
+      .tag {
+        font-size: 0.7rem;
+        font-weight: 600;
+        border-radius: 4px;
+        padding: 2px 7px;
       }
 
-      .project-footer {
+      .tag-green  { background: #D6F0E0; color: #1E7A45; }
+      .tag-orange { background: #FDE8D8; color: #B85A1A; }
+      .tag-blue   { background: #D8E8FD; color: #1A4DB8; }
+
+      .card-sub {
+        font-size: 0.78rem;
+        color: #6B6560;
+      }
+
+      .card-desc {
+        list-style: disc;
+        padding-left: 16px;
+        font-size: 0.82rem;
+        color: #4A4540;
+        line-height: 1.7;
+      }
+
+      .card-desc li {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 70ch;
+      }
+
+      .card-footer {
         display: flex;
         align-items: center;
         justify-content: space-between;
         margin-top: auto;
         padding-top: 12px;
-        border-top: 1px solid #27272a;
+        border-top: 1px solid #D6CEBC;
       }
 
-      .badge {
-        font-size: 0.75rem;
+      .card-level {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        font-size: 0.78rem;
+        color: #6B6560;
+      }
+
+      .btn-open {
+        background: #E8453C;
+        color: #fff;
+        border: none;
+        border-radius: 7px;
+        padding: 7px 16px;
+        font-size: 0.8rem;
         font-weight: 600;
-        color: #818cf8;
-        background: #1e1b4b;
-        border-radius: 999px;
-        padding: 3px 10px;
+        cursor: pointer;
+        font-family: inherit;
+        transition: background 0.15s;
       }
 
-      .arrow-icon { color: #52525b; }
-      .cell-project:hover .arrow-icon { color: #818cf8; }
+      .btn-open:hover { background: #c93830; }
+
+      /* ── copy button ── */
+      .btn-copy {
+        background: #EDE8DF;
+        color: #6B6560;
+        border: 1px solid #D6CEBC;
+        border-radius: 7px;
+        padding: 7px 12px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        cursor: pointer;
+        font-family: inherit;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        transition: background 0.15s, color 0.15s, border-color 0.15s;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .btn-copy:hover {
+        background: #D6CEBC;
+        color: #1A1A1A;
+        border-color: #b8b0a0;
+      }
+
+      .btn-copy.copied {
+        background: #D6F0E0;
+        color: #1E7A45;
+        border-color: #a8dfc0;
+      }
+
+      @keyframes ripple {
+        from { transform: scale(0); opacity: 0.4; }
+        to   { transform: scale(3.5); opacity: 0; }
+      }
+
+      .btn-copy .ripple {
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: #1E7A45;
+        pointer-events: none;
+        animation: ripple 0.5s ease forwards;
+        transform-origin: center;
+      }
+
+      .card-footer-btns {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
 
       /* stat cells */
       .cell-stat {
+        display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
         text-align: center;
-        background: #111113;
+        gap: 4px;
+        background: #EDE8DF;
       }
 
       .stat-number {
-        font-size: 2.4rem;
-        font-weight: 700;
-        color: #818cf8;
+        font-family: 'Playfair Display', Georgia, serif;
+        font-size: 2.8rem;
+        color: #E8453C;
         line-height: 1;
       }
 
       .stat-label {
-        font-size: 0.82rem;
-        color: #52525b;
+        font-size: 0.8rem;
+        color: #6B6560;
         font-weight: 500;
-        margin-top: 4px;
       }
 
-      /* tip */
+      /* tip — full width */
       .cell-tip {
         grid-column: 1 / -1;
-        flex-direction: row;
+        display: flex;
         align-items: center;
-        gap: 12px;
-        padding: 16px 20px;
-        background: #111113;
-        border-color: #27272a;
+        gap: 10px;
+        padding: 14px 20px;
+        background: #EDE8DF;
+        font-size: 0.85rem;
+        color: #6B6560;
       }
 
-      .tip-icon { color: #f59e0b; flex-shrink: 0; }
+      .cell-tip i { color: #E8843C; flex-shrink: 0; }
 
-      .cell-tip p {
-        font-size: 0.88rem;
-        color: #71717a;
-        line-height: 1.5;
-      }
-
-      @media (max-width: 480px) {
+      @media (max-width: 560px) {
         .bento { grid-template-columns: 1fr; }
-        .cell-hero, .cell-tip { grid-column: 1; }
+        .cell-tip { grid-column: 1; }
       }
     </style>
   </head>
   <body>
     <div class="bento">
 
+      <!-- Hero -->
       <div class="cell cell-hero">
-        <div class="hero-icon">
-          <i data-lucide="layout-dashboard" width="26" height="26"></i>
-        </div>
-        <div class="hero-text">
-          <h1>Frontend Mentor Practice Hub</h1>
-          <p>Fast access to your current challenge previews. Click any card to open the project.</p>
+        <h1>Your Frontend Mentor<br>Practice Hub</h1>
+        <p>Browse your challenge solutions and open any project to continue iterating.</p>
+        <div class="hero-meta">
+          <i data-lucide="layers" width="14" height="14"></i>
+          4 solutions completed
         </div>
       </div>
 
+      <!-- Blog Preview Card -->
       <a class="cell cell-project" href="blog-preview-card-main/index.html" target="_blank">
-        <div class="project-icon">
-          <i data-lucide="newspaper" width="22" height="22"></i>
+        <div class="card-top">
+          <div class="card-icon">
+            <i data-lucide="newspaper" width="22" height="22"></i>
+          </div>
+          <div class="card-info">
+            <div class="card-title-row">
+              <h3>Blog Preview Card</h3>
+              <span class="tag tag-green">HTML</span>
+              <span class="tag tag-blue">CSS</span>
+            </div>
+            <p class="card-sub">Layout &amp; Typography</p>
+          </div>
         </div>
-        <h2>Blog Preview Card</h2>
-        <p>A card component featuring a blog post preview with image, tag, date, and author info.</p>
-        <div class="project-footer">
-          <span class="badge">HTML / CSS</span>
-          <i data-lucide="arrow-up-right" class="arrow-icon" width="18" height="18"></i>
+        <ul class="card-desc">
+          <li>Card layout with image, tag, date and author</li>
+          <li>Responsive spacing and hover states</li>
+        </ul>
+        <div class="card-footer">
+          <span class="card-level">
+            <i data-lucide="signal-low" width="13" height="13"></i> Beginner
+          </span>
+          <div class="card-footer-btns">
+            <button class="btn-copy" data-desc="Card layout with image, tag, date and author. Responsive spacing and hover states." onclick="copyProject(event, this)"><i data-lucide="copy" width="13" height="13"></i> Copy</button>
+            <button class="btn-open">Open Project</button>
+          </div>
         </div>
       </a>
 
+      <!-- QR Code Card -->
       <a class="cell cell-project" href="qr-code-component-main/index.html" target="_blank">
-        <div class="project-icon">
-          <i data-lucide="qr-code" width="22" height="22"></i>
+        <div class="card-top">
+          <div class="card-icon">
+            <i data-lucide="qr-code" width="22" height="22"></i>
+          </div>
+          <div class="card-info">
+            <div class="card-title-row">
+              <h3>QR Code Card</h3>
+              <span class="tag tag-green">HTML</span>
+              <span class="tag tag-blue">CSS</span>
+            </div>
+            <p class="card-sub">Component &amp; Centering</p>
+          </div>
         </div>
-        <h2>QR Code Card</h2>
-        <p>A centered card displaying a QR code with a short call-to-action message below it.</p>
-        <div class="project-footer">
-          <span class="badge">HTML / CSS</span>
-          <i data-lucide="arrow-up-right" class="arrow-icon" width="18" height="18"></i>
+        <ul class="card-desc">
+          <li>Centered card with QR image and text styling</li>
+          <li>Clean minimal layout practice</li>
+        </ul>
+        <div class="card-footer">
+          <span class="card-level">
+            <i data-lucide="signal-low" width="13" height="13"></i> Beginner
+          </span>
+          <div class="card-footer-btns">
+            <button class="btn-copy" data-desc="Centered card with QR image and text styling. Clean minimal layout practice." onclick="copyProject(event, this)"><i data-lucide="copy" width="13" height="13"></i> Copy</button>
+            <button class="btn-open">Open Project</button>
+          </div>
         </div>
       </a>
 
+      <!-- Social Links -->
       <a class="cell cell-project" href="social-links-profile-main/index.html" target="_blank">
-        <div class="project-icon">
-          <i data-lucide="user-round" width="22" height="22"></i>
+        <div class="card-top">
+          <div class="card-icon">
+            <i data-lucide="user-round" width="22" height="22"></i>
+          </div>
+          <div class="card-info">
+            <div class="card-title-row">
+              <h3>Social Links Profile</h3>
+              <span class="tag tag-green">HTML</span>
+              <span class="tag tag-blue">CSS</span>
+            </div>
+            <p class="card-sub">Profile Card &amp; States</p>
+          </div>
         </div>
-        <h2>Social Links Profile</h2>
-        <p>A profile card with a collection of social media links featuring hover and focus states.</p>
-        <div class="project-footer">
-          <span class="badge">HTML / CSS</span>
-          <i data-lucide="arrow-up-right" class="arrow-icon" width="18" height="18"></i>
+        <ul class="card-desc">
+          <li>Profile card with social media links</li>
+          <li>Hover and focus states for all interactive elements</li>
+        </ul>
+        <div class="card-footer">
+          <span class="card-level">
+            <i data-lucide="signal-low" width="13" height="13"></i> Beginner
+          </span>
+          <div class="card-footer-btns">
+            <button class="btn-copy" data-desc="Profile card with social media links. Hover and focus states for all interactive elements." onclick="copyProject(event, this)"><i data-lucide="copy" width="13" height="13"></i> Copy</button>
+            <button class="btn-open">Open Project</button>
+          </div>
         </div>
       </a>
 
+      <!-- FAQ Accordion -->
       <a class="cell cell-project" href="faq-accordion-main/index.html" target="_blank">
-        <div class="project-icon">
-          <i data-lucide="list-collapse" width="22" height="22"></i>
+        <div class="card-top">
+          <div class="card-icon">
+            <i data-lucide="list-collapse" width="22" height="22"></i>
+          </div>
+          <div class="card-info">
+            <div class="card-title-row">
+              <h3>FAQ Accordion</h3>
+              <span class="tag tag-green">HTML</span>
+              <span class="tag tag-blue">CSS</span>
+              <span class="tag tag-orange">JS</span>
+            </div>
+            <p class="card-sub">Interactivity &amp; Accessibility</p>
+          </div>
         </div>
-        <h2>FAQ Accordion</h2>
-        <p>An accessible accordion component that shows and hides answers on click with keyboard navigation support.</p>
-        <div class="project-footer">
-          <span class="badge">HTML / CSS / JS</span>
-          <i data-lucide="arrow-up-right" class="arrow-icon" width="18" height="18"></i>
+        <ul class="card-desc">
+          <li>Show/hide answers on click with smooth transitions</li>
+          <li>Full keyboard navigation support</li>
+        </ul>
+        <div class="card-footer">
+          <span class="card-level">
+            <i data-lucide="signal-medium" width="13" height="13"></i> Junior
+          </span>
+          <div class="card-footer-btns">
+            <button class="btn-copy" data-desc="Show/hide answers on click with smooth transitions. Full keyboard navigation support." onclick="copyProject(event, this)"><i data-lucide="copy" width="13" height="13"></i> Copy</button>
+            <button class="btn-open">Open Project</button>
+          </div>
         </div>
       </a>
 
+      <!-- Stats -->
       <div class="cell cell-stat">
         <div class="stat-number">4</div>
         <div class="stat-label">Projects</div>
@@ -270,12 +441,42 @@
         <div class="stat-label">JS Projects</div>
       </div>
 
+      <!-- Tip -->
       <div class="cell cell-tip">
-        <i data-lucide="zap" class="tip-icon" width="18" height="18"></i>
-        <p>Tip: Use VS Code Live Server for instant reload while editing your HTML &amp; CSS files.</p>
+        <i data-lucide="zap" width="16" height="16"></i>
+        Tip: Use VS Code Live Server for instant reload while editing your HTML &amp; CSS files.
       </div>
 
     </div>
-    <script>lucide.createIcons();</script>
+    <script>
+      lucide.createIcons();
+
+      async function copyProject(e, btn) {
+        e.preventDefault();
+        e.stopPropagation();
+        try {
+          await navigator.clipboard.writeText(btn.dataset.desc);
+        } catch {
+          return;
+        }
+
+        // ripple
+        const ripple = document.createElement('span');
+        ripple.className = 'ripple';
+        btn.appendChild(ripple);
+        setTimeout(() => ripple.remove(), 500);
+
+        // state change
+        btn.classList.add('copied');
+        btn.innerHTML = '<i data-lucide="check" width="13" height="13"></i> Copied!';
+        lucide.createIcons();
+
+        setTimeout(() => {
+          btn.classList.remove('copied');
+          btn.innerHTML = '<i data-lucide="copy" width="13" height="13"></i> Copy';
+          lucide.createIcons();
+        }, 2000);
+      }
+    </script>
   </body>
 </html>
