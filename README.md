@@ -10,6 +10,7 @@ Open the root `index.html` page (project launcher) to jump to each challenge:
 - `qr-code-component-main/index.html`
 - `social-links-profile-main/index.html`
 - `faq-accordion-main/index.html`
+- `browser-extensions-manager-ui-main/index.html`
 
 ## How to run
 
@@ -42,6 +43,12 @@ Open the root `index.html` page (project launcher) to jump to each challenge:
 - Folder: `faq-accordion-main`
 - Stack: HTML, CSS, JavaScript
 - Goal: Build an accessible accordion that shows/hides answers on click with full keyboard navigation.
+
+### 5) Browser Extensions Manager
+
+- Folder: `browser-extensions-manager-ui-main`
+- Stack: HTML, CSS, JavaScript
+- Goal: Build a UI to toggle, filter and remove extensions with a theme switcher and dynamic JSON data.
 
 ## Notes
 

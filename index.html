@@ -47,6 +47,8 @@
       .cell:nth-child(5) { animation: fadeUp 0.45s ease 0.33s forwards; }
       .cell:nth-child(6) { animation: fadeUp 0.45s ease 0.40s forwards; }
       .cell:nth-child(7) { animation: fadeUp 0.45s ease 0.47s forwards; }
+      .cell:nth-child(8) { animation: fadeUp 0.45s ease 0.54s forwards; }
+      .cell:nth-child(9) { animation: fadeUp 0.45s ease 0.61s forwards; }
 
       /* hero — full width */
       .cell-hero {
@@ -305,7 +307,7 @@
         <p>Browse your challenge solutions and open any project to continue iterating.</p>
         <div class="hero-meta">
           <i data-lucide="layers" width="14" height="14"></i>
-          4 solutions completed
+          5 solutions completed
         </div>
       </div>
 
@@ -430,14 +432,45 @@
         </div>
       </a>
 
+      <!-- Browser Extensions Manager -->
+      <a class="cell cell-project" href="browser-extensions-manager-ui-main/index.html" target="_blank">
+        <div class="card-top">
+          <div class="card-icon">
+            <i data-lucide="puzzle" width="22" height="22"></i>
+          </div>
+          <div class="card-info">
+            <div class="card-title-row">
+              <h3>Browser Extensions Manager</h3>
+              <span class="tag tag-green">HTML</span>
+              <span class="tag tag-blue">CSS</span>
+              <span class="tag tag-orange">JS</span>
+            </div>
+            <p class="card-sub">UI &amp; State Management</p>
+          </div>
+        </div>
+        <ul class="card-desc">
+          <li>Toggle, filter and remove browser extensions</li>
+          <li>Theme switcher with dynamic JSON data rendering</li>
+        </ul>
+        <div class="card-footer">
+          <span class="card-level">
+            <i data-lucide="signal-medium" width="13" height="13"></i> Junior
+          </span>
+          <div class="card-footer-btns">
+            <button class="btn-copy" data-desc="Toggle, filter and remove browser extensions. Theme switcher with dynamic JSON data rendering." onclick="copyProject(event, this)"><i data-lucide="copy" width="13" height="13"></i> Copy</button>
+            <button class="btn-open">Open Project</button>
+          </div>
+        </div>
+      </a>
+
       <!-- Stats -->
       <div class="cell cell-stat">
-        <div class="stat-number">4</div>
+        <div class="stat-number">5</div>
         <div class="stat-label">Projects</div>
       </div>
 
       <div class="cell cell-stat">
-        <div class="stat-number">1</div>
+        <div class="stat-number">2</div>
         <div class="stat-label">JS Projects</div>
       </div>
 
